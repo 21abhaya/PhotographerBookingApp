@@ -107,6 +107,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     "photographer_booking_app.users",
+    'app'
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
