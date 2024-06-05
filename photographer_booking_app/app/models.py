@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -20,7 +21,35 @@ class Photographer(models.Model):
     Phone_Number = PhoneNumberField(max_length = 15, null=False, blank=False, verbose_name='Phone')
     Fees = models.DecimalField(max_digits=10, decimal_places=2, blank=False, null=False, verbose_name='Fees/hour')
     #Portfolio = models.ForeignKey('Portfolio', on_delete=models.RESTRICT, blank=False, null=False)
-    #Category = models.ForeignKey('Category', on_delete=models.RESTRICT, null=False, blank=False)
+    PHOTOGRAPHY_GENRE = [
+    ('Adventure Photography', 'Adventure Photography'),
+    ('Aerial Photography', 'Aerial Photography'),
+    ('Astro Photography', 'Astro Photography'),
+    ('Automotive Photography', 'Automotive Photography'),
+    ('Commercial Photography', 'Commercial Photography'),
+    ('Documentary Photography', 'Documentary Photography'),
+    ('Event Photography', 'Event Photography'),
+    ('Fashion Photography', 'Fashion Photography'),
+    ('Fine Art Photography', 'Fine Art Photography'),
+    ('Food Photography', 'Food Photography'),
+    ('Industrial Photography', 'Industrial Photography'),
+    ('Landscape Photography', 'Landscape Photography'),
+    ('Medical Photography', 'Medical Photography'),
+    ('Pet Photography', 'Pet Photography'),
+    ('Photojournalist', 'Photojournalist'),
+    ('Portrait Photography', 'Portrait Photography'),
+    ('Product Photography', 'Product Photography'),
+    ('Real Estate Photography', 'Real Estate Photography'),
+    ('Scientific Photography', 'Scientific Photography'),
+    ('Sports Photography', 'Sports Photography'),
+    ('Stock Photography', 'Stock Photography'),
+    ('Street Photography', 'Street Photography'),
+    ('Travel Photography', 'Travel Photography'),
+    ('War Photography', 'War Photography'),
+    ('Wedding Photography', 'Wedding Photography'),
+    ('Wildlife Photography', 'Wildlife Photography'),
+]
+    Category = models.CharField(max_length=1000, choices=PHOTOGRAPHY_GENRE, blank=True, null=True, verbose_name='Genre')
 
 
     def get_image_url(self):
