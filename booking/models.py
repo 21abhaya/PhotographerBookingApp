@@ -1,6 +1,6 @@
 from django.db import models
 from customer.models import Customer
-from photographer_booking_app.app.models import Photographer
+from photographer.models import Photographer
 
 import uuid
 

@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-app_name = "booking"
+app_name = "photographer"
 
 urlpatterns =[
     
