@@ -7,7 +7,7 @@ import uuid
 # Create your models here.
 
 class BookBaseModel(models.Model):
-    Ticket = models.UUIDField
+    Ticket = models.UUIDField(uuid)
     
     
 
@@ -17,7 +17,7 @@ class BookCall(BookBaseModel):
     Booking_Date_Time = models.DateTimeField()
     
 
-class BookaSession(BookBaseModel):
+class BookASession(BookBaseModel):
     Customer = models.OneToOneField(Customer, null=False, blank=False)
     Photographer = models.OneToOneField(Photographer, null=False, blank=False)
     Booking_Date_Time = models.DateTimeField()
