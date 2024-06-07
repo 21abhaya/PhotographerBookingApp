@@ -51,10 +51,12 @@ class Photographer(models.Model):
 ]
     Category = models.CharField(max_length=1000, choices=PHOTOGRAPHY_GENRE, blank=True, null=True, verbose_name='Genre')
 
+    class metadata:
+        ordering = ['first_name']
 
     def get_image_url(self):
-        if self.image and hasattr(self.image, 'url'):
-            return self.image.url
+        if self.display_picture and hasattr(self.display_picture, 'url'):
+            return self.display_picture.url
         else:
             return f"{MEDIA_URL}/photographer/display_pictures/default.jpg"
         
@@ -64,4 +66,10 @@ class Photographer(models.Model):
     
 
     
+class Portfolio(models.Model):
+    """Portfolio model defines a portfolio entity."""
 
+    photographer = models.OneToOneField(Photographer, on_delete=models.CASCADE)
+    portfolio_images = models.ImageField(upload_to=f"uploads/portfolio/", default='uploads/default.jpg')
+
+        

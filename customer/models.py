@@ -12,7 +12,10 @@ class Customer(models.Model):
     email = models.EmailField(max_length=254, blank=False, null=False)
     Phone_Number = PhoneNumberField(max_length = 15, null=False, blank=False, verbose_name='Phone')
 
+    class metadata:
+        ordering = ['first_name']
 
     def __str__(self):
         """String for representing the model object."""
         return f'{self.first_name} {self.last_name}' 
+
