@@ -69,7 +69,7 @@ class Photographer(models.Model):
 class Portfolio(models.Model):
     """Portfolio model defines a portfolio entity."""
 
-    photographer = models.OneToOneField('app.Photographer', on_delete=models.CASCADE)
+    photographer = models.OneToOneField(Photographer, on_delete=models.CASCADE)
     portfolio_images = models.ImageField(upload_to=f"uploads/portfolio/", default='uploads/default.jpg')
 
         

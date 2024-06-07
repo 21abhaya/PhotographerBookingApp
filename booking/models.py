@@ -13,14 +13,14 @@ class BookBaseModel(models.Model):
     
 
 class BookCall(BookBaseModel):
-    customer = models.OneToOneField(Customer, null=False, blank=False)
-    photographer = models.OneToOneField(Photographer, null=False, blank=False)
+    customer = models.OneToOneField(Customer, null=False, blank=False, on_delete=models.RESTRICT)
+    photographer = models.OneToOneField(Photographer, null=False, blank=False, on_delete=models.RESTRICT)
     booked_for = models.DateTimeField()
     
 
 class BookASession(BookBaseModel):
-    customer = models.OneToOneField(Customer, null=False, blank=False)
-    photographer = models.OneToOneField(Photographer, null=False, blank=False)
+    customer = models.OneToOneField(Customer, null=False, blank=False, on_delete=models.RESTRICT)
+    photographer = models.OneToOneField(Photographer, null=False, blank=False, on_delete=models.RESTRICT)
     booked_For = models.DateTimeField()
 
      
