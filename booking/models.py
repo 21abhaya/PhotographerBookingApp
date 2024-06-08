@@ -9,7 +9,7 @@ import uuid
 # Create your models here.
 
 class BookBaseModel(models.Model):
-    ticket = models.UUIDField(uuid)
+    ticket = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     booking_made_on = models.DateTimeField(auto_now_add=True)
 
     class meta:
