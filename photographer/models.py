@@ -61,15 +61,26 @@ class Photographer(models.Model):
             return f"{MEDIA_URL}/photographer/display_pictures/default.jpg"
         
     def __str__(self):
-        """String for representing the model object."""
+        """String for representing each model object."""
         return f'{self.first_name} {self.last_name}' 
     
+    def get_absolute_url(self):
+        """Returns URL to access a particular Photographer record"""
+        return reverse('photographer-detail', args=str[self.id]) 
 
-    
+# The upload path function for 'upload to' field option
+def portfolio_image_upload_to(self):
+        return f"uploads/portfolio/{self.photographer}/"    
+
 class Portfolio(models.Model):
     """Portfolio model defines a portfolio entity."""
 
     photographer = models.OneToOneField(Photographer, on_delete=models.CASCADE)
-    portfolio_images = models.ImageField(upload_to=f"uploads/portfolio/", default='uploads/default.jpg')
+    portfolio_images = models.ImageField(upload_to=portfolio_image_upload_to, default='uploads/default.jpg')
+    
+    def _str_(self):
+        return f"Portfolio of {self.photographer}"
 
-        
+    def get_absolute_url(self):
+        return reverse('portfolio-of', args=[str(self.id)])
+    

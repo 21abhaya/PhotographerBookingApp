@@ -1,5 +1,8 @@
 from django.db import models
+from django.urls import reverse
+
 from phonenumber_field.modelfields import PhoneNumberField
+
 # Create your models here.
 class Customer(models.Model):
 
@@ -19,3 +22,5 @@ class Customer(models.Model):
         """String for representing the model object."""
         return f'{self.first_name} {self.last_name}' 
 
+    def get_absolute_url(self):
+        return reverse('customer-detail', args=[str(self.id)])
