@@ -14,7 +14,9 @@ class BookBaseModel(models.Model):
 
     class meta:
         abstract = True
-    
+
+    def __str__(self):
+        return self.ticket
     
 
 class BookCall(BookBaseModel):
@@ -23,7 +25,7 @@ class BookCall(BookBaseModel):
     booked_for = models.DateTimeField()
     
     def __str__(self):
-        return f"Call Booked by {self.customer}"
+        return f"Call Booked by {self.customer}-{self.id}"
     
     def get_absolute_url(self):
         return reverse('call-book-detail', args=[str(self.id)])
@@ -34,7 +36,7 @@ class BookASession(BookBaseModel):
     booked_For = models.DateTimeField()
 
     def __str__(self):
-        return f"Session Booked by {self.customer}"
+        return f"Session Booked by {self.customer}-{self.id}"
 
      
     def get_absolute_url(self):
