@@ -7,8 +7,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 class Customer(models.Model):
 
     """Customer model defines a customer entity""" 
-
-
+    
     first_name = models.CharField(max_length=250, blank=False)
     last_name = models.CharField(max_length=250, blank=False)
     address = models.CharField(max_length=300)
