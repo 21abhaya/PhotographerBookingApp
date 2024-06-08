@@ -9,6 +9,9 @@ import uuid
 class BookBaseModel(models.Model):
     ticket = models.UUIDField(uuid)
     booking_made_on = models.DateTimeField(auto_now_add=True)
+
+    class meta:
+        abstract = True
     
     
 
