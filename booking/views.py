@@ -9,61 +9,61 @@ from .models import BookCall,BookASession
 class BookCallCreateView(CreateView):
     model = BookCall
     # form_class =
-    template_name = 'bookCall_create_update_view.html'
-    success_url = reverse_lazy('booking:bookedCalls-list')
+    template_name = 'bookcall_create_update_view.html'
+    success_url = reverse_lazy('booking:booked-calls-list')
 
 class BookCallListView(ListView):
     model = BookCall
     # form_class = 
-    context_object_name = 'BookedCalls'
-    template_name = 'BookCall_list_view.html'
+    context_object_name = 'bookedcalls'
+    template_name = 'bookcall_list_view.html'
     paginate_by = 10
 
 class BookCallDetailView(DetailView):
     model = BookCall
-    context_object_name = 'BookedCall'
-    template_name = 'BookCall_detail_view.html'
+    context_object_name = 'bookedcall'
+    template_name = 'bookcall_detail_view.html'
 
     
 class BookCallUpdateView(UpdateView):
     model = BookCall
     # form_class =
-    template_name = 'BookCall_delete_view.html'
-    success_url = reverse_lazy('BookCall:BookCalls-list')
+    template_name = 'bookcall_create_update_view.html'
+    success_url = reverse_lazy('booking:booked-calls-list')
 
 class BookCallDeleteView(DeleteView):
     model = BookCall
-    template_name = 'BookCall_delete_view.html'
-    success_url = reverse_lazy('BookCall:BookedCalls-list')
+    template_name = 'bookcall_delete_view.html'
+    success_url = reverse_lazy('booking:booked-calls-list')
 
 #BookASession CRUD
 
 class BookASessionCreateView(CreateView):
     model = BookASession
     # form_class =
-    template_name = 'BookASession_create_update_view.html'
-    success_url = reverse_lazy('BookASession:BookedSessions-list')
+    template_name = 'bookasession_create_update_view.html'
+    success_url = reverse_lazy('booking:booked-sessions-list')
 
 class BookASessionListView(ListView):
     model = BookASession
     # form_class = 
-    context_object_name = 'BookASession'
-    template_name = 'BookASession_list_view.html'
+    context_object_name = 'bookedsessions'
+    template_name = 'bookasession_list_view.html'
     paginate_by = 10
 
 class BookASessionDetailView(DetailView):
     model = BookASession
-    context_object_name = 'BookASession'
-    template_name = 'BookASession_detail_view.html'
+    context_object_name = 'bookedsession'
+    template_name = 'bookasession_detail_view.html'
 
     
 class BookASessionUpdateView(UpdateView):
     model = BookASession
     # form_class =
-    template_name = 'BookASession_delete_view.html'
-    success_url = reverse_lazy('BookASession:BookCalls-list')
+    template_name = 'bookasession_delete_view.html'
+    success_url = reverse_lazy('booking:booked-sessions-list')
 
 class BookASessionDeleteView(DeleteView):
     model = BookASession
-    template_name = 'BookASession_delete_view.html'
-    success_url = reverse_lazy('booking:BookCalls-list')
+    template_name = 'bookasession_delete_view.html'
+    success_url = reverse_lazy('booking:booked-sessions-list')
