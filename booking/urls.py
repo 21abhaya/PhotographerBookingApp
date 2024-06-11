@@ -12,7 +12,7 @@ urlpatterns =[
 ]
 
 urlpatterns +=[
-    path('session-booking-create/', BookASessionCreateView.as_View, name='session-booking-create'),
+    path('session-booking-create/', BookASessionCreateView.as_view, name='session-booking-create'),
     path('booked-sessions/', BookASessionListView.as_view, name='booked-sessions-list'),
     path('booked-session-detail/<uuid:pk>', BookASessionDetailView.as_view, name='booked-session-detail'),
     path('booked-session-update/<uuid:pk>', BookASessionUpdateView.as_view, name='booked-session-update'),
