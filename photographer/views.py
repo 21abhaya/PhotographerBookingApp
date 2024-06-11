@@ -15,14 +15,15 @@ class PhotographerCreateView(CreateView):
 class PhotographerListView(ListView):
     model = Photographer
     # form_class = 
-    template_name = 'photographer_list_view.html'
     context_object_name = 'photographers'
+    template_name = 'photographer_list_view.html'
     paginate_by = 10
 
 class PhotographerDetailView(DetailView):
     model = Photographer
+    context_object_name = 'photographer'
     template_name = 'photographer_detail_view.html'
-    
+
     
 class PhotographerUpdateView(CreateView):
     model = Photographer
