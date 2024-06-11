@@ -2,5 +2,35 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
+from .models import Customer
 
 # Create your views here.
+
+class CustomerCreateView(CreateView):
+    model = Customer
+    # form_class =
+    template_name = 'Customer_create_update_view.html'
+    success_url = reverse_lazy('Customer:Customers-list')
+
+class CustomerListView(ListView):
+    model = Customer
+    context_object_name = 'Customers'
+    template_name = 'Customer_list_view.html'
+    paginate_by = 10
+
+class CustomerDetailView(DetailView):
+    model = Customer
+    context_object_name = 'Customer'
+    template_name = 'Customer_detail_view.html'
+
+    
+class CustomerUpdateView(UpdateView):
+    model = Customer
+    # form_class =
+    template_name = 'Customer_delete_view.html'
+    success_url = reverse_lazy('Customer:Customers-list')
+
+class CustomerDeleteView(DeleteView):
+    model = Customer
+    template_name = 'Customer_delete_view.html'
+    success_url = reverse_lazy('Customer:Customers-list')
