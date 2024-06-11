@@ -25,7 +25,7 @@ class PhotographerDetailView(DetailView):
     template_name = 'photographer_detail_view.html'
 
     
-class PhotographerUpdateView(CreateView):
+class PhotographerUpdateView(UpdateView):
     model = Photographer
     # form_class =
     template_name = 'photographer_delete_view.html'
