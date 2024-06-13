@@ -23,10 +23,10 @@ urlpatterns = [
     # User management
     path("users/", include("photographer_booking_app.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
-    path("photographer/", include("photographer.urls", namespace="photographer")),
-    path("customer/", include("customer.urls", namespace="customer")),    
+    path("photographer/", include("photographer.urls")),
+    path("customer/", include("customer.urls")),    
     # Your stuff: custom urls includes go here
-    path("booking/", include("booking.urls", namespace="bookings")),
+    path("booking/", include("booking.urls")),
     # ...
     # Media files
     *static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
