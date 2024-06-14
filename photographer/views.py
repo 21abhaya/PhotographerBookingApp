@@ -28,7 +28,7 @@ class PhotographerDetailView(DetailView):
 class PhotographerUpdateView(UpdateView):
     model = Photographer
     # form_class =
-    template_name = 'photographer_delete_view.html'
+    template_name = 'photographer_create_update_view.html'
     success_url = reverse_lazy('photographer:photographers-list')
 
 class PhotographerDeleteView(DeleteView):
