@@ -3,18 +3,17 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 
 from .models import Photographer
-
+from .forms import PhotographerForm
 # Create your views here.
 
 class PhotographerCreateView(CreateView):
     model = Photographer
-    # form_class =
+    form_class = PhotographerForm
     template_name = 'photographer_create_update_view.html'
     success_url = reverse_lazy('photographer:photographers-list')
 
 class PhotographerListView(ListView):
     model = Photographer
-    # form_class = 
     context_object_name = 'photographers'
     template_name = 'photographer_list_view.html'
     paginate_by = 10
@@ -27,7 +26,7 @@ class PhotographerDetailView(DetailView):
     
 class PhotographerUpdateView(UpdateView):
     model = Photographer
-    # form_class =
+    form_class = PhotographerForm
     template_name = 'photographer_create_update_view.html'
     success_url = reverse_lazy('photographer:photographers-list')
 
