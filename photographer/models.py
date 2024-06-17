@@ -80,5 +80,5 @@ class Portfolio(models.Model):
     portfolio_images = models.ImageField(upload_to=portfolio_image_upload_to, default='uploads/default.jpg')
 
     def get_absolute_url(self):
-        return reverse('portfolio')
+        return reverse('portfolio-image', args=[str(self.id)])
     
