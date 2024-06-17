@@ -44,7 +44,7 @@ class PhotographerDetailView(DetailView):
     context_object_name = 'photographer'
     template_name = 'photographer_detail_view.html'
     
-class PhotographerUpdateView(UpdateView):
+class PhotographerUpdateView(UpdateView, UserPassesTestMixin, PermissionRequiredMixin, LoginRequiredMixin):
     model = Photographer
     form_class = PhotographerForm
     template_name = 'photographer_create_update_view.html'
@@ -67,7 +67,7 @@ class PhotographerUpdateView(UpdateView):
             return self.handle_no_permission()
         return super().dispatch(request, *args, **kwargs)
 
-class PhotographerDeleteView(DeleteView):
+class PhotographerDeleteView(DeleteView, UserPassesTestMixin, PermissionRequiredMixin, LoginRequiredMixin):
     model = Photographer
     template_name = 'photographer_delete_view.html'
     success_url = reverse_lazy('photographer:photographers-list')
