@@ -70,14 +70,14 @@ class Photographer(models.Model):
         return reverse('photographer-detail', args=str[self.id]) 
 
 # The upload path function for 'upload to' field option
-def portfolio_image_upload_to(self):
-        return f"uploads/portfolio/{self.photographer}/"    
+# def portfolio_image_upload_to(self):
+#         return f"uploads/portfolio/{self.photographer}/"    
 
 class Portfolio(models.Model):
     """Portfolio model defines a portfolio entity."""
 
     # photographer = models.OneToOneField(Photographer, on_delete=models.CASCADE)
-    portfolio_images = models.ImageField(upload_to=portfolio_image_upload_to, default='uploads/default.jpg')
+    portfolio_images = models.ImageField(upload_to='uploads/portfolio_gallery/', default='uploads/default.jpg')
 
     def get_absolute_url(self):
         return reverse('portfolio-images', args=[str(self.id)])
