@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
             name='Portfolio',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('portfolio_images', models.ImageField(default='uploads/default.jpg', upload_to=photographer.models.portfolio_image_upload_to)),
+                ('portfolio_images', models.ImageField(default='uploads/default.jpg', upload_to="uploads/portfolio_gallery/")),
                 ('photographer', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to='photographer.photographer')),
             ],
         ),
