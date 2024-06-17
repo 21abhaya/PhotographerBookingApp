@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-from phonenumber_field.modelfields import PhoneNumberField
+#from phonenumber_field.modelfields import PhoneNumberField
 
 from config.settings.base import MEDIA_URL
 
@@ -18,9 +18,10 @@ class Photographer(models.Model):
     email = models.EmailField(max_length=254, blank=False, null=False)
     about = models.TextField(verbose_name="Who am I?", blank=False, null=False)
     display_picture = models.ImageField(upload_to="photographer/display_pictures/", default='/photographer/display_pictures/default.jpg')
-    Phone_Number = PhoneNumberField(max_length = 15, null=False, blank=False, verbose_name='Phone')
-    Fees = models.DecimalField(max_digits=10, decimal_places=2, blank=False, null=False, verbose_name='Fees/hour')
-    #Portfolio = models.ForeignKey('Portfolio', on_delete=models.RESTRICT, blank=False, null=False)
+    Phone_Number = models.CharField(max_length = 15, null=False, blank=False, verbose_name='Phone')
+    # Phone_Number = PhoneNumberField(max_length = 15, null=False, blank=False, verbose_name='Phone')
+    fees = models.DecimalField(max_digits=10, decimal_places=2, blank=False, null=False, verbose_name='Fees/hour')
+    portfolio = models.OneToOneField('Portfolio', on_delete=models.RESTRICT, blank=True, null=True, verbose_name='Gallery')
     PHOTOGRAPHY_GENRE = [
     ('Adventure Photography', 'Adventure Photography'),
     ('Aerial Photography', 'Aerial Photography'),
@@ -75,12 +76,9 @@ def portfolio_image_upload_to(self):
 class Portfolio(models.Model):
     """Portfolio model defines a portfolio entity."""
 
-    photographer = models.OneToOneField(Photographer, on_delete=models.CASCADE)
+    # photographer = models.OneToOneField(Photographer, on_delete=models.CASCADE)
     portfolio_images = models.ImageField(upload_to=portfolio_image_upload_to, default='uploads/default.jpg')
-    
-    def _str_(self):
-        return f"Portfolio of {self.photographer}"
 
     def get_absolute_url(self):
-        return reverse('portfolio-of', args=[str(self.id)])
+        return reverse('portfolio')
     
